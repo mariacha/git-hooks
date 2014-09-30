@@ -22,5 +22,5 @@ USAGE
  * OR: add the script to your pre-commit "chain" (you probably know what to do then)
  * Put the Config file "config" into the same dir as the "pre-commit" script and
    edit it to your requirements
+ * Add the path to the git subfolder you want to check to the `PROFILE_DIRECTORY` variable in the config file.   
  * Ensure that the script is executable. 
-
