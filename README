@@ -1,4 +1,4 @@
 git-hooks collection
 
-Currently just a pre-commit hook for PHP Codesniffer
+Currently just a pre-commit hook for PHP Codesniffer customized slightly for Drupal coding standards.
 
