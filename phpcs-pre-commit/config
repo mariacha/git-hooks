@@ -3,20 +3,23 @@ PHPCS_BIN=/usr/bin/phpcs
 
 # the coding standard, you can also specify a path to your own standard here 
 # e. g. /path/to/my/standard/dir/
-PHPCS_CODING_STANDARD=PEAR
+PHPCS_CODING_STANDARD=Drupal
 
 # comma-separated list of file patterns being ignored
 PHPCS_IGNORE=
 
 # comma-seperated list of sniffs from the standard that should be used
 # use `phpcs --standard=PSR1 -e` to list sniffs for your standard
-PHPCS_SNIFFS=Generic.Files.ByteOrderMark,Generic.PHP.DisallowShortOpenTag
+PHPCS_SNIFFS=
+
+PROFILE_DIRECTORY=path/to/profile/name
 
 # egrep compatible pattern of  files to be checked
-PHPCS_FILE_PATTERN="\.(php|phtml)$"
+# represents anything in the 
+PHPCS_FILE_PATTERN="($PROFILE_DIRECTORY.+\.(php|module|install|test|profile|theme)|custom.+\.inc)$"
 
 # ignore warnings
-PHPCS_IGNORE_WARNINGS=1
+PHPCS_IGNORE_WARNINGS=0
 
 # encoding
 PHPCS_ENCODING=utf-8
