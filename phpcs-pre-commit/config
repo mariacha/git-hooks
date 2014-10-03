@@ -16,7 +16,7 @@ PROFILE_DIRECTORY=path/to/profile/name
 
 # egrep compatible pattern of  files to be checked
 # represents anything in the 
-PHPCS_FILE_PATTERN="($PROFILE_DIRECTORY.+\.(php|module|install|test|profile|theme)|custom.+\.inc)$"
+PHPCS_FILE_PATTERN="($PROFILE_DIRECTORY.+\.(php|module|install|test|profile|theme|app.inc)|custom.+\.inc)$"
 
 # ignore warnings
 PHPCS_IGNORE_WARNINGS=0
