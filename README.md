@@ -35,3 +35,9 @@ git config --global init.templatedir '~/.git-templates'
 ```
  git clone git@github.com:mariacha/git-hooks.git && mv git-hooks/phpcs-pre-commit/* ~/.git-templates/hooks
  ```
+
+* Make sure the pre-commit file is executable
+
+```
+chmod a+x ~/.git-templates/hooks/pre-commit
+```
