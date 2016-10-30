@@ -27,6 +27,11 @@ For each single git repo:
 
 For global git commits:
  * Create a global git init folder (so this gets added to any project you initialize)
- `git config --global init.templatedir '~/.git-templates'`
+```
+git config --global init.templatedir '~/.git-templates'
+```
+
  * Clone this repo and move it into your init.templatedir folder
- `git clone git@github.com:mariacha/git-hooks.git && mv git-hooks/phpcs-pre-commit/* ~/.git-templates/hooks`
+```
+ git clone git@github.com:mariacha/git-hooks.git && mv git-hooks/phpcs-pre-commit/* ~/.git-templates/hooks
+ ```
