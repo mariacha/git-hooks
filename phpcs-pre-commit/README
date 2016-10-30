@@ -18,9 +18,15 @@ FEATURES
 
 USAGE
 
- * Put the script "pre-commit" into your .git/hooks directory 
- * OR: add the script to your pre-commit "chain" (you probably know what to do then)
+For each single git repo:
+ * Put the script "pre-commit" into your .git/hooks directory `
  * Put the Config file "config" into the same dir as the "pre-commit" script and
    edit it to your requirements
- * Add the path to the git subfolder you want to check to the `PROFILE_DIRECTORY` variable in the config file.   
+ * Add the path to the git subfolder you want to check to the `PROFILE_DIRECTORY` variable in the config file.
  * Ensure that the script is executable. 
+
+For global git commits:
+ * Create a global git init folder (so this gets added to any project you initialize)
+ `git config --global init.templatedir '~/.git-templates'`
+ * Clone this repo and move it into your init.templatedir folder
+ `git clone git@github.com:mariacha/git-hooks.git && mv git-hooks/phpcs-pre-commit/* ~/.git-templates/hooks`

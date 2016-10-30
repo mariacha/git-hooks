@@ -6,7 +6,7 @@
 #
 # see the README
 
-PHPCS_BIN=/usr/bin/phpcs
+PHPCS_BIN=/usr/local/bin/phpcs
 PHPCS_CODING_STANDARD=Drupal
 PHPCS_IGNORE=
 TMP_STAGING=".tmp_staging"
@@ -16,6 +16,39 @@ CONFIG_FILE=$(dirname $0)/config
 if [ -e $CONFIG_FILE ]; then
     . $CONFIG_FILE
 fi
+
+function request_directory {
+   read -p "Enter the relative path (from your git root) to whatever directory you wish to check for Drupal coding standards: " local_path
+
+    #check if path is valid
+    if [ -d $local_path ]
+    then
+      PROFILE_DIRECTORY=$local_path;
+      sed -i -e "s/PROFILE_DIRECTORY=/PROFILE_DIRECTORY=$PROFILE_DIRECTORY/g" $CONFIG_FILE;
+    else
+      echo "folder $local_path does not exist"
+      exit 1;
+    fi
+}
+
+if [ "$PROFILE_DIRECTORY" == "" ]; then
+    exec < /dev/tty
+
+    while true; do
+      read -p "Install Code Sniffer precommit hook in this repo? (Y/n) " yn
+      if [ "$yn" = "" ]; then
+        yn='Y'
+      fi
+      case $yn in
+          [Yy] ) request_directory; break;;
+          [Nn] ) exit 0;;
+          * ) echo "Please answer y or n for yes or no.";;
+      esac
+    done
+    exec <&-
+fi
+
+PHPCS_FILE_PATTERN="($PROFILE_DIRECTORY.+$PHPCS_EXTENSIONS)$"
 
 # simple check if code sniffer is set up correctly
 if [ ! -x $PHPCS_BIN ]; then
